@@ -10,7 +10,7 @@ import {
     Upload, Download, Trash2, Eye, ShoppingCart,
     CloudUpload, X, Check, Info, ChevronLeft, ChevronRight,
     Filter, RotateCcw, ChevronDown, ChevronUp,
-    Package, TrendingUp, DollarSign, Columns3, Search as SearchIcon,
+    TrendingUp, DollarSign, Columns3, Search as SearchIcon,
     Calendar, Store, Building2, FileText, Image as ImageIcon
 } from 'lucide-react';
 import { ref, onValue, push, set, remove } from 'firebase/database';
@@ -138,7 +138,7 @@ export default function POManagement() {
             if (f.namaSekolah && !(p.namaSekolah || '').toLowerCase().includes(f.namaSekolah.toLowerCase())) return false;
             if (f.area && !(p.area || '').toLowerCase().includes(f.area.toLowerCase())) return false;
             if (f.namaPersonil && !(p.namaPersonil || '').toLowerCase().includes(f.namaPersonil.toLowerCase())) return false;
-            if (f.userid && !(f.userid || '').toLowerCase().includes(f.userid.toLowerCase())) return false;
+            if (f.userid && !(p.userid || '').toLowerCase().includes(f.userid.toLowerCase())) return false;
             if (f.nomorPO && !(p.nomorPO || '').toLowerCase().includes(f.nomorPO.toLowerCase())) return false;
             if (f.role && p.role !== f.role) return false;
             if (f.bulan && p.bulan !== f.bulan) return false;

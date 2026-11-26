@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+ï»¿import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import {
     Box, Typography, Button, TextField, Paper, IconButton, Checkbox,
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow,
@@ -273,7 +273,7 @@ export default function SurveyManagement() {
         if (col.type === 'date' || col.type === 'datetime') return <span style={{ fontSize: '0.72rem' }}>{formatDate(value)}</span>;
         if (col.type === 'url' && typeof value === 'string' && value.startsWith('http')) return <a href={value} target="_blank" rel="noopener noreferrer" style={{ color: '#0288D1', textDecoration: 'none', fontSize: '0.72rem', fontWeight: 600 }}>Link</a>;
         const strVal = String(value);
-        if (strVal.length > 26) return <Tooltip title={strVal} arrow placement="top"><span style={{ cursor: 'help', fontSize: '0.72rem' }}>{strVal.substring(0, 26)}…</span></Tooltip>;
+        if (strVal.length > 26) return <Tooltip title={strVal} arrow placement="top"><span style={{ cursor: 'help', fontSize: '0.72rem' }}>{strVal.substring(0, 26)}</span></Tooltip>;
         return <span style={{ fontSize: '0.72rem' }}>{strVal}</span>;
     };
 
@@ -448,7 +448,7 @@ export default function SurveyManagement() {
             <Box sx={{ mt: 1.25, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 1 }}>
                 <Typography variant="caption" color="text.secondary">Halaman {page} dari {totalPages}</Typography>
                 <Typography variant="caption" color="text.secondary" sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                    <Info size={13} /> Kolom tampil: {visibleKeys.length}/{SURVEY_COLUMNS.length} • Filter aktif: {activeFilterCount}
+                    <Info size={13} /> Kolom tampil: {visibleKeys.length}/{SURVEY_COLUMNS.length}  Filter aktif: {activeFilterCount}
                 </Typography>
             </Box>
 
@@ -585,7 +585,7 @@ export default function SurveyManagement() {
                 {selectedSurvey && (
                     <Box sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                         <Box sx={{ p: 2, background: 'linear-gradient(135deg, #00796B 0%, #0288D1 100%)', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                            <Box><Typography variant="subtitle1" sx={{ fontWeight: 700 }}>{selectedSurvey.namaSekolah || 'Detail Survei'}</Typography><Typography variant="caption" sx={{ opacity: 0.9 }}>{selectedSurvey.area} — {formatDate(selectedSurvey.tanggal)}</Typography></Box>
+                            <Box><Typography variant="subtitle1" sx={{ fontWeight: 700 }}>{selectedSurvey.namaSekolah || 'Detail Survei'}</Typography><Typography variant="caption" sx={{ opacity: 0.9 }}>{selectedSurvey.area}  {formatDate(selectedSurvey.tanggal)}</Typography></Box>
                             <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
                                 {selectedSurvey.gradeSekolah && selectedSurvey.gradeSekolah !== '-' && <Chip label={`Grade ${selectedSurvey.gradeSekolah}`} color={getGradeColor(selectedSurvey.gradeSekolah)} sx={{ bgcolor: 'white', color: '#00796B', fontWeight: 700 }} />}
                                 <IconButton onClick={() => setDetailOpen(false)} sx={{ color: 'white' }}><X size={20} /></IconButton>
