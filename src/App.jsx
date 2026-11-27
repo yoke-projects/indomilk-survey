@@ -4,6 +4,9 @@ import Layout from './components/Layout';
 import PersonnelManagement from './pages/PersonnelManagement';
 import SurveyManagement from './pages/SurveyManagement';
 import POManagement from './pages/POManagement';
+import Settings from './pages/Settings';
+import TertarikPO from './pages/TertarikPO';
+import Dashboard from './pages/Dashboard';
 
 const appTheme = createTheme({
     palette: {
@@ -82,7 +85,7 @@ const appTheme = createTheme({
 });
 
 function App() {
-    const [currentPage, setCurrentPage] = useState('po'); // Default ke PO Management
+    const [currentPage, setCurrentPage] = useState('dashboard');
 
     const renderPage = () => {
         switch (currentPage) {
@@ -92,8 +95,14 @@ function App() {
                 return <SurveyManagement />;
             case 'po':
                 return <POManagement />;
+            case 'settings':
+                return <Settings />;
+            case 'tertarik':
+                return <TertarikPO />;
+            case 'dashboard':
+                return <Dashboard />;
             default:
-                return <POManagement />;
+                return <Dashboard />;
         }
     };
 

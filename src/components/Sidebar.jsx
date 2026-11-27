@@ -5,7 +5,8 @@ import {
     Collapse, Divider
 } from '@mui/material';
 import {
-    Users, BarChart3, ShoppingCart, Menu, ChevronLeft, ChevronRight, ChevronDown
+    Users, BarChart3, ShoppingCart, Menu, ChevronLeft, ChevronRight, ChevronDown,
+    Settings as SettingsIcon, Heart,LayoutDashboard
 } from 'lucide-react';
 
 const DRAWER_EXPANDED_WIDTH = 260;
@@ -15,14 +16,23 @@ const menuSections = [
     {
         title: 'OPERASIONAL',
         items: [
+            { key: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },    
             { key: 'survei', label: 'Manage Survei', icon: BarChart3 },
             { key: 'po', label: 'PO Management', icon: ShoppingCart },
+            { key: 'tertarik', label: 'Tertarik & PO', icon: Heart },
+
         ],
     },
     {
         title: 'MASTER DATA',
         items: [
             { key: 'personil', label: 'Manage Personil', icon: Users },
+        ],
+    },
+    {
+        title: 'SISTEM',
+        items: [
+            { key: 'settings', label: 'Settings', icon: SettingsIcon },
         ],
     },
 ];

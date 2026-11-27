@@ -147,6 +147,16 @@ export const formatTanggal = (date) => {
 export const parseTanggal = (str) => {
     if (!str) return null;
     if (str instanceof Date) return isNaN(str) ? null : str;
+    const isSerial = (typeof str === 'number') ||
+        (typeof str === 'string' && /^\d{5}(\.\d+)?$/.test(str.trim()));
+    if (isSerial) {
+        const serial = Number(str);
+        if (!isNaN(serial) && serial >= 30000 && serial < 60000) {
+            const ms = Math.round((serial - 25569) * 86400 * 1000);
+            const d = new Date(ms);
+            return isNaN(d) ? null : d;
+        }
+    }
     if (typeof str !== 'string') return null;
     if (str.includes('/')) {
         const parts = str.split('/');
@@ -155,6 +165,15 @@ export const parseTanggal = (str) => {
             const m = parseInt(parts[1], 10) - 1;
             const y = parseInt(parts[2], 10);
             if (!isNaN(d) && !isNaN(m) && !isNaN(y)) return new Date(y, m, d);
+        }
+    }
+    if (str.includes('-')) {
+        const parts = str.split('-');
+        if (parts.length === 3) {
+            const y = parseInt(parts[0], 10);
+            const m = parseInt(parts[1], 10) - 1;
+            const d = parseInt(parts[2], 10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)) return new Date(y, m, d);
         }
     }
     const dt = new Date(str);
